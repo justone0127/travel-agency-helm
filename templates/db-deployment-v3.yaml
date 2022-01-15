@@ -6,7 +6,7 @@ metadata:
     app: mysqldb
     version: v3
 spec:
-  replicas: 1
+  replicas: {{ .Values.db_replicas}}
   selector:
     matchLabels:
       app: mysqldb

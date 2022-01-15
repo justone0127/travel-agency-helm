@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: travels
       version: v3
-  replicas: 3
+  replicas: {{ .Values.replicas}}
   template:
     metadata:
       annotations:
