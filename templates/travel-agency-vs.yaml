@@ -1,0 +1,24 @@
+kind: VirtualService
+apiVersion: networking.istio.io/v1alpha3
+metadata:
+  name: travels
+  namespace: travel-agency
+  labels:
+    kiali_wizard: request_routing
+spec:
+  hosts:
+    - travels.travel-agency.svc.cluster.local
+  http:
+    - route:
+        - destination:
+            host: travels.travel-agency.svc.cluster.local
+            subset: v1
+          weight: 33
+        - destination:
+            host: travels.travel-agency.svc.cluster.local
+            subset: v2
+          weight: 33
+        - destination:
+            host: travels.travel-agency.svc.cluster.local
+            subset: v3
+          weight: 34

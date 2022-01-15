@@ -1,0 +1,16 @@
+kind: VirtualService
+apiVersion: networking.istio.io/v1alpha3
+metadata:
+  name: cars
+  namespace: travel-agency
+  labels:
+    kiali_wizard: request_routing
+spec:
+  hosts:
+    - cars.travel-agency.svc.cluster.local
+  http:
+    - route:
+        - destination:
+            host: cars.travel-agency.svc.cluster.local
+            subset: v1
+          weight: 100
